@@ -7,9 +7,9 @@ import (
 
 func worker(id int, job <-chan int, result chan<- int) {
 	for j := range job {
-		fmt.Println("worker %d started %d job", id, j)
+		fmt.Printf("worker %d started %d job\n", id, j)
 		time.Sleep(time.Second)
-		fmt.Println("worker %d finished %d job", id, j)
+		fmt.Printf("worker %d finished %d job\n", id, j)
 		result <- 2 * j
 	}
 }
